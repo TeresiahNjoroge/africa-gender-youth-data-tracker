@@ -1,6 +1,6 @@
-# Africa Gender & Youth Data Tracker
+# Africa Gender & Youth Data Project
 
-> M&E data analysis and reporting tracker for Africa gender & youth indicators | SQL · Python · Power BI | AU WGYD-aligned
+> M&E data analysis and reporting project for Africa gender & youth indicators | SQL · Python · Power BI 
 
 [![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)](https://www.python.org/)
 [![SQL](https://img.shields.io/badge/SQL-PostgreSQL-336791?logo=postgresql)](https://www.postgresql.org/)
@@ -11,7 +11,7 @@
 
 ## Overview
 
-This project is an end-to-end **Monitoring, Evaluation & Learning (MEL)** data pipeline built to track gender and youth indicators across African countries, aligned with the **African Union Women, Gender and Youth Directorate (WGYD)** framework.
+This project is an end-to-end **Monitoring, Evaluation & Learning (MEL)** data pipeline built to track gender and youth indicators across African countries..
 
 It demonstrates how raw survey and administrative data can be cleaned, stored in a relational database, queried with SQL, and visualized in Power BI to generate actionable insights for development programmes.
 
@@ -19,7 +19,7 @@ It demonstrates how raw survey and administrative data can be cleaned, stored in
 
 ## Why This Project Exists
 
-Development organisations working on gender equity and youth empowerment in Africa face a recurring challenge: data exists in silos — different formats, different countries, different years — making it hard to track progress against indicators like:
+Development organisations working on gender equity and youth empowerment in Africa face a recurring challenge: data exists in silos; different formats, different countries, different years. This makes it hard to track progress against indicators like:
 
 - Female labour force participation rate
 - Youth unemployment (ages 15-35)
@@ -38,7 +38,7 @@ This tracker solves that by building a reproducible, auditable pipeline from raw
 | PostgreSQL | Structured storage and SQL analysis |
 | Jupyter Notebooks | Reproducible analysis documentation |
 | Power BI | Interactive dashboard and reporting |
-| GitHub | Version control and portfolio |
+| GitHub | Version control|
 
 ---
 
@@ -48,7 +48,7 @@ This tracker solves that by building a reproducible, auditable pipeline from raw
 africa-gender-youth-data-tracker/
 |
 |-- data/
-|   |-- raw/           # Original CSV files (simulated AU/World Bank-style data)
+|   |-- raw/           # Original CSV files (downloaded from the World Bank Open Data API)
 |   |-- cleaned/       # Processed, analysis-ready datasets
 |
 |-- notebooks/
@@ -57,6 +57,7 @@ africa-gender-youth-data-tracker/
 |   |-- 03_reporting_export.ipynb   # Summary tables and export for Power BI
 |
 |-- dashboard/
+|   |-- 04_gender_youth_dashboard.pbix    # Power BI file
 |   |-- dashboard_screenshot.png    # Dashboard preview
 |
 |-- README.md
@@ -66,19 +67,18 @@ africa-gender-youth-data-tracker/
 
 ## Data Sources (Simulated)
 
-The datasets used in this project are simulated to mirror real-world AU and World Bank indicator structures:
+The datasets used in this project were sourced from the World Bank Open Data API for all 54 African Union member states:
 
 - `gender_indicators.csv` — Female labour force participation, women in parliament, literacy rates by country and year
 - `youth_employment.csv` — Youth unemployment rates by gender, NEET rates, vocational training enrolment
 - `education_access.csv` — School enrolment by gender (primary, secondary, tertiary)
 
-All data follows AU WGYD indicator definitions and uses ISO country codes for Africa.
 
 ---
 
 ## Notebooks
 
-### Notebook 01 — Data Cleaning
+### Notebook 01. Data Cleaning
 
 What it does:
 - Loads raw CSV files into pandas DataFrames
@@ -90,7 +90,7 @@ Key skills demonstrated: pandas, data quality checks, MEL data standardisation
 
 ---
 
-### Notebook 02 — SQL Analysis
+### Notebook 02. SQL Analysis
 
 What it does:
 - Loads cleaned data into a local PostgreSQL database using SQLAlchemy
@@ -106,7 +106,7 @@ Key skills demonstrated: PostgreSQL, window functions, UNION queries, aggregatio
 
 ---
 
-### Notebook 03 — Reporting and Export
+### Notebook 03. Reporting and Export
 
 What it does:
 - Generates summary DataFrames from SQL query results
