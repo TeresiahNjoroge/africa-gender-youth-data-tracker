@@ -1,0 +1,31 @@
+indicator,au_region,avg_value,min_value,max_value,record_count
+female_lfp,Central Africa,55.45,22.57,75.89,81
+female_lfp,East Africa,61.16,18.55,84.63,117
+female_lfp,North Africa,21.71,14.48,31.66,44
+female_lfp,Other,35.83,33.37,36.62,9
+female_lfp,Southern Africa,58.36,48.61,78.56,81
+female_lfp,West Africa,57.59,26.8,81.88,144
+girls_secondary_enrol,Central Africa,40.33,11.04,95.13,23
+girls_secondary_enrol,East Africa,57.55,2.76,113.52,56
+girls_secondary_enrol,North Africa,73.5,40.47,106.15,22
+girls_secondary_enrol,Other,,,,0
+girls_secondary_enrol,Southern Africa,73.95,31.95,111.09,36
+girls_secondary_enrol,West Africa,52.47,16.66,116.37,79
+women_in_parliament,Central Africa,19.5,7.19,36.82,78
+women_in_parliament,East Africa,28.55,3.03,63.75,121
+women_in_parliament,North Africa,23.45,7.86,31.6,39
+women_in_parliament,Other,16.07,15.96,16.47,9
+women_in_parliament,Southern Africa,26.68,6.15,46.75,81
+women_in_parliament,West Africa,16.8,3.38,46.06,142
+youth_unemployment_f,Central Africa,18.67,0.63,47.15,81
+youth_unemployment_f,East Africa,18.21,1.25,84.18,117
+youth_unemployment_f,North Africa,35.7,13.1,54.36,44
+youth_unemployment_f,Other,70.56,68.68,74.81,9
+youth_unemployment_f,Southern Africa,30.9,7.01,70.56,81
+youth_unemployment_f,West Africa,8.54,0.24,41.83,144
+youth_unemployment_m,Central Africa,17.82,2.08,47.75,81
+youth_unemployment_m,East Africa,16.16,1.58,80.32,117
+youth_unemployment_m,North Africa,25.2,11.82,41.08,44
+youth_unemployment_m,Other,42.99,41.89,44.71,9
+youth_unemployment_m,Southern Africa,25.84,6.43,61.15,81
+youth_unemployment_m,West Africa,7.35,0.52,29.95,144
