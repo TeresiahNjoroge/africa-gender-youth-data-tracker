@@ -5,7 +5,7 @@
 [![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)](https://www.python.org/)
 [![SQL](https://img.shields.io/badge/SQL-PostgreSQL-336791?logo=postgresql)](https://www.postgresql.org/)
 [![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi)](https://powerbi.microsoft.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 
 ---
 
@@ -200,7 +200,3 @@ Experienced in SQL, Python, and Power BI with a background in operations, projec
 - GitHub: [github.com/TeresiahNjoroge](https://github.com/TeresiahNjoroge)
 
 ---
-
-## License
-
-MIT License — see [LICENSE](LICENSE) for details.
