@@ -11,9 +11,9 @@
 
 ## Overview
 
-This project is an end-to-end **Monitoring, Evaluation & Learning (MEL)** data pipeline built to track gender and youth indicators across African countries..
+This project is an end-to-end **Monitoring, Evaluation & Learning (MEL)** data pipeline built to track gender and youth indicators across African countries.
 
-It demonstrates how raw survey and administrative data can be cleaned, stored in a relational database, queried with SQL, and visualized in Power BI to generate actionable insights for development programmes.
+It demonstrates how raw survey and administrative data can be cleaned, stored in a relational database, queried with SQL, and visualised in Power BI to generate actionable insights for development programmes.
 
 ---
 
@@ -26,7 +26,7 @@ Development organisations working on gender equity and youth empowerment in Afri
 - Girls secondary school enrolment
 - Women in decision-making positions
 
-This tracker solves that by building a reproducible, auditable pipeline from raw data to dashboard.
+This tracker solves that by building a reproducible, auditable pipeline from raw data to a dashboard.
 
 ---
 
@@ -97,10 +97,10 @@ What it does:
 - Runs 6 analytical SQL queries covering:
   1. Average female labour force participation by region
   2. Top 10 countries by gender parity improvement (2015-2023)
-  3. Youth unemployment trends — East vs West Africa
+  3. Youth unemployment trends: East vs West Africa
   4. Countries below the AU 30% women-in-parliament target
   5. Combined gender and youth risk index (UNION query)
-  6. Year-on-year change in girls secondary enrolment
+  6. Year-on-year change in girls' secondary enrolment
 
 Key skills demonstrated: PostgreSQL, window functions, UNION queries, aggregation, subqueries
 
@@ -125,12 +125,12 @@ The dashboard contains 4 key visuals:
 
 | Visual | Description |
 |--------|-------------|
-| Women in Parliament by AU Region | Bar chart — average % of women in parliament per region |
-| Female Labour Force Participation Trend | Line chart — FLP rate over time (2015-2023) by region |
-| Gender Gap — Youth Unemployment by Country | Clustered bar — male vs female youth unemployment per country |
-| Data Completeness by Indicator and Region | Matrix table — record counts per indicator per region |
+| Women in Parliament by AU Region | Bar chart - average % of women in parliament per region |
+| Female Labour Force Participation Trend | Line chart - FLP rate over time (2015-2023) by region |
+| Gender Gap - Youth Unemployment by Country | Clustered bar - male vs female youth unemployment per country |
+| Data Completeness by Indicator and Region | Matrix table - record counts per indicator per region |
 
-Slicer: Year (2015-2023) — filters all visuals by reporting year.
+Slicer: Year (2015-2023) - filters all visuals by reporting year.
 
 ---
 
@@ -139,7 +139,7 @@ Slicer: Year (2015-2023) — filters all visuals by reporting year.
 - **Southern Africa** leads on women in parliament (~38%), while West Africa is lowest (~27%)
 - **North Africa** is a clear outlier on female labour force participation (~22% vs continental average of ~58%)
 - **DJI (Djibouti) and LBY (Libya)** show the largest male-female youth unemployment gap
-- Data completeness is **100% balanced** — 477 records per indicator across all regions
+- Data completeness is **100% balanced**, 477 records per indicator across all regions
 
 ---
 
