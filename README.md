@@ -33,7 +33,7 @@ This tracker solves that by building a reproducible, auditable pipeline from raw
 ## Tools and Technologies
 
 | Tool | Purpose |
-|------|---------|
+|---|---|
 | Python (pandas, SQLAlchemy) | Data cleaning and loading |
 | PostgreSQL | Structured storage and SQL analysis |
 | Jupyter Notebooks | Reproducible analysis documentation |
@@ -47,18 +47,35 @@ This tracker solves that by building a reproducible, auditable pipeline from raw
 ```
 africa-gender-youth-data-tracker/
 |
+|-- dashboard/
+|   |-- 04_gender_youth_dashboard.pbix   # Power BI dashboard file
+|   |-- dashboard_screenshot.png         # Dashboard preview
+|
 |-- data/
-|   |-- raw/           # Original CSV files (simulated AU/World Bank-style data)
-|   |-- cleaned/       # Processed, analysis-ready datasets
+|   |-- raw/                             # Original CSV files
+|   |   |-- female_lfp.csv
+|   |   |-- girls_secondary_enrol.csv
+|   |   |-- women_in_parliament.csv
+|   |   |-- youth_unemployment_f.csv
+|   |   |-- youth_unemployment_m.csv
+|   |
+|   |-- cleaned/                         # Processed, analysis-ready datasets
+|       |-- exports/
+|       |-- female_lfp_clean.csv
+|       |-- girls_secondary_enrol_clean.csv
+|       |-- women_in_parliament_clean.csv
+|       |-- youth_unemployment_f_clean.csv
+|       |-- youth_unemployment_m_clean.csv
 |
 |-- notebooks/
-|   |-- 01_data_cleaning.ipynb      # Data ingestion, cleaning, standardisation
-|   |-- 02_sql_analysis.ipynb       # SQL queries via Python (SQLAlchemy + psycopg2)
-|   |-- 03_reporting_export.ipynb   # Summary tables and export for Power BI
+|   |-- 01_data_cleaning.ipynb           # Data ingestion, cleaning, standardisation
+|   |-- 02_indicator_analysis.ipynb      # Exploratory & indicator analysis
+|   |-- 03_reporting_export.ipynb        # Summary tables and export for Power BI
 |
-|-- dashboard/
-|   |-- dashboard_screenshot.png    # Dashboard preview
+|-- sql/
+|   |-- indicator_queries.sql            # SQL queries for indicator metrics
 |
+|-- dashboard_screenshot.png             # Dashboard preview (root level)
 |-- README.md
 ```
 
@@ -68,9 +85,11 @@ africa-gender-youth-data-tracker/
 
 The datasets used in this project are simulated to mirror real-world AU and World Bank indicator structures:
 
-- `gender_indicators.csv` — Female labour force participation, women in parliament, literacy rates by country and year
-- `youth_employment.csv` — Youth unemployment rates by gender, NEET rates, vocational training enrolment
-- `education_access.csv` — School enrolment by gender (primary, secondary, tertiary)
+- `female_lfp.csv` — Female labour force participation rate by country and year
+- `girls_secondary_enrol.csv` — Girls secondary school enrolment by country and year
+- `women_in_parliament.csv` — Women in parliament (%) by country and year
+- `youth_unemployment_f.csv` — Female youth unemployment rate by country and year
+- `youth_unemployment_m.csv` — Male youth unemployment rate by country and year
 
 All data follows AU WGYD indicator definitions and uses ISO country codes for Africa.
 
@@ -88,23 +107,19 @@ What it does:
 
 Key skills demonstrated: pandas, data quality checks, MEL data standardisation
 
----
-
-### Notebook 02 — SQL Analysis
+### Notebook 02 — Indicator Analysis
 
 What it does:
 - Loads cleaned data into a local PostgreSQL database using SQLAlchemy
-- Runs 6 analytical SQL queries covering:
-  1. Average female labour force participation by region
-  2. Top 10 countries by gender parity improvement (2015-2023)
-  3. Youth unemployment trends — East vs West Africa
-  4. Countries below the AU 30% women-in-parliament target
-  5. Combined gender and youth risk index (UNION query)
-  6. Year-on-year change in girls secondary enrolment
+- Runs analytical SQL queries covering:
+  - Average female labour force participation by region
+  - Top 10 countries by gender parity improvement (2015-2023)
+  - Youth unemployment trends — East vs West Africa
+  - Countries below the AU 30% women-in-parliament target
+  - Combined gender and youth risk index (UNION query)
+  - Year-on-year change in girls secondary enrolment
 
 Key skills demonstrated: PostgreSQL, window functions, UNION queries, aggregation, subqueries
-
----
 
 ### Notebook 03 — Reporting and Export
 
@@ -124,7 +139,7 @@ Key skills demonstrated: Data export pipeline, reporting automation, M&E indicat
 The dashboard contains 4 key visuals:
 
 | Visual | Description |
-|--------|-------------|
+|---|---|
 | Women in Parliament by AU Region | Bar chart — average % of women in parliament per region |
 | Female Labour Force Participation Trend | Line chart — FLP rate over time (2015-2023) by region |
 | Gender Gap — Youth Unemployment by Country | Clustered bar — male vs female youth unemployment per country |
@@ -170,18 +185,19 @@ cd africa-gender-youth-data-tracker
 
 ```
 notebooks/01_data_cleaning.ipynb
-notebooks/02_sql_analysis.ipynb
+notebooks/02_indicator_analysis.ipynb
 notebooks/03_reporting_export.ipynb
 ```
 
 3. Open Power BI Desktop and load CSVs from `data/cleaned/`
+4. Open `dashboard/04_gender_youth_dashboard.pbix` to view the dashboard
 
 ---
 
 ## Alignment to AU WGYD Framework
 
 | AU Priority Area | Indicator Tracked |
-|-----------------|-------------------|
+|---|---|
 | Economic Empowerment | Female labour force participation rate |
 | Political Participation | Women in national parliaments (%) |
 | Education and Skills | Girls secondary school enrolment |
