@@ -1,11 +1,10 @@
 # Africa Gender & Youth Data Project
 
-> M&E data analysis and reporting project for Africa gender & youth indicators | SQL · Python · Power BI 
+> M&E data analysis and reporting project for Africa gender & youth indicators | SQL · Python · Power BI
 
 [![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)](https://www.python.org/)
 [![SQL](https://img.shields.io/badge/SQL-PostgreSQL-336791?logo=postgresql)](https://www.postgresql.org/)
 [![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi)](https://powerbi.microsoft.com/)
-
 
 ---
 
@@ -45,20 +44,20 @@ This tracker solves that by building a reproducible, auditable pipeline from raw
 ## Project Structure
 
 ```
-africa-gender-youth-data-project/
+africa-gender-youth-data-tracker/
 |
 |-- data/
-|   |-- raw/           # Original CSV files (downloaded from the World Bank Open Data API)
-|   |-- cleaned/       # Processed, analysis-ready datasets
+|   |-- raw/          # Original CSV files (downloaded from the World Bank Open Data API)
+|   |-- cleaned/      # Processed, analysis-ready datasets
 |
 |-- notebooks/
-|   |-- 01_data_cleaning.ipynb      # Data ingestion, cleaning, standardisation
-|   |-- 02_sql_analysis.ipynb       # SQL queries via Python (SQLAlchemy + psycopg2)
-|   |-- 03_reporting_export.ipynb   # Summary tables and export for Power BI
+|   |-- 01_data_cleaning.ipynb    # Data ingestion, cleaning, standardisation
+|   |-- 02_sql_analysis.ipynb     # SQL queries via Python (SQLAlchemy + psycopg2)
+|   |-- 03_reporting_export.ipynb # Summary tables and export for Power BI
 |
 |-- dashboard/
-|   |-- 04_gender_youth_dashboard.pbix    # Power BI file
-|   |-- dashboard_screenshot.png    # Dashboard preview
+|   |-- 04_gender_youth_dashboard.pbix  # Power BI file
+|   |-- dashboard_screenshot.png        # Dashboard preview
 |
 |-- README.md
 ```
@@ -73,7 +72,6 @@ The datasets used in this project were sourced from the World Bank Open Data API
 - `youth_employment.csv` — Youth unemployment rates by gender, NEET rates, vocational training enrolment
 - `education_access.csv` — School enrolment by gender (primary, secondary, tertiary)
 
-
 ---
 
 ## Notebooks
@@ -81,6 +79,7 @@ The datasets used in this project were sourced from the World Bank Open Data API
 ### Notebook 01. Data Cleaning
 
 What it does:
+
 - Loads raw CSV files into pandas DataFrames
 - Standardises column names, country codes, and year formats
 - Handles missing values using forward-fill and regional median imputation
@@ -93,6 +92,7 @@ Key skills demonstrated: pandas, data quality checks, MEL data standardisation
 ### Notebook 02. SQL Analysis
 
 What it does:
+
 - Loads cleaned data into a local PostgreSQL database using SQLAlchemy
 - Runs 6 analytical SQL queries covering:
   1. Average female labour force participation by region
@@ -109,6 +109,7 @@ Key skills demonstrated: PostgreSQL, window functions, UNION queries, aggregatio
 ### Notebook 03. Reporting and Export
 
 What it does:
+
 - Generates summary DataFrames from SQL query results
 - Exports final indicator tables to CSV for Power BI ingestion
 - Produces a structured indicator summary report
@@ -162,8 +163,8 @@ CREATE DATABASE gender_tracker;
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/TeresiahNjoroge/africa-gender-youth-data-project.git
-cd africa-gender-youth-data-project
+git clone https://github.com/TeresiahNjoroge/africa-gender-youth-data-tracker.git
+cd africa-gender-youth-data-tracker
 ```
 
 2. Run notebooks in order:
