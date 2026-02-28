@@ -45,7 +45,7 @@ This tracker solves that by building a reproducible, auditable pipeline from raw
 ## Project Structure
 
 ```
-africa-gender-youth-data-tracker/
+africa-gender-youth-data-project/
 |
 |-- data/
 |   |-- raw/           # Original CSV files (downloaded from the World Bank Open Data API)
@@ -162,8 +162,8 @@ CREATE DATABASE gender_tracker;
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/TeresiahNjoroge/africa-gender-youth-data-tracker.git
-cd africa-gender-youth-data-tracker
+git clone https://github.com/TeresiahNjoroge/africa-gender-youth-data-project.git
+cd africa-gender-youth-data-project
 ```
 
 2. Run notebooks in order:
