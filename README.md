@@ -33,8 +33,8 @@ This tracker solves that by building a reproducible, auditable pipeline from raw
 
 | Tool | Purpose |
 |------|---------|
-| Python (pandas, SQLAlchemy) | Data cleaning and loading |
-| PostgreSQL | Structured storage and SQL analysis |
+| Python (pandas, numpy) | Data cleaning and analysis |
+| SQLite (via sqlite3) | In-memory SQL queries and analysis |
 | Jupyter Notebooks | Reproducible analysis documentation |
 | Power BI | Interactive dashboard and reporting |
 | GitHub | Version control|
@@ -44,16 +44,16 @@ This tracker solves that by building a reproducible, auditable pipeline from raw
 ## Project Structure
 
 ```
-africa-gender-youth-data-tracker/
+africa-gender-youth-data-project/
 |
 |-- data/
-|   |-- raw/          # Original CSV files (downloaded from the World Bank Open Data API)
-|   |-- cleaned/      # Processed, analysis-ready datasets
+|   |-- raw/              # Original CSV files (downloaded from the World Bank Open Data API)
+|   |-- cleaned/          # Processed, analysis-ready datasets
 |
 |-- notebooks/
-|   |-- 01_data_cleaning.ipynb    # Data ingestion, cleaning, standardisation
-|   |-- 02_sql_analysis.ipynb     # SQL queries via Python (SQLAlchemy + psycopg2)
-|   |-- 03_reporting_export.ipynb # Summary tables and export for Power BI
+|   |-- 01_data_cleaning.ipynb       # Data ingestion, cleaning, standardisation
+|   |-- 02_indicator_analysis.ipynb  # SQL queries via Python (sqlite3)
+|   |-- 03_reporting_export.ipynb    # Summary tables and export for Power BI
 |
 |-- dashboard/
 |   |-- 04_gender_youth_dashboard.pbix  # Power BI file
@@ -68,9 +68,11 @@ africa-gender-youth-data-tracker/
 
 The datasets used in this project were sourced from the World Bank Open Data API for all 54 African Union member states:
 
-- `gender_indicators.csv` — Female labour force participation, women in parliament, literacy rates by country and year
-- `youth_employment.csv` — Youth unemployment rates by gender, NEET rates, vocational training enrolment
-- `education_access.csv` — School enrolment by gender (primary, secondary, tertiary)
+- `female_lfp_clean.csv` — Female labour force participation rate by country and year
+- `girls_secondary_enrol_clean.csv` — Girls secondary school enrolment by country and year
+- `women_in_parliament_clean.csv` — Women in national parliaments (%) by country and year
+- `youth_unemployment_f_clean.csv` — Female youth unemployment rate by country and year
+- `youth_unemployment_m_clean.csv` — Male youth unemployment rate by country and year
 
 ---
 
@@ -89,20 +91,20 @@ Key skills demonstrated: pandas, data quality checks, MEL data standardisation
 
 ---
 
-### Notebook 02. SQL Analysis
+### Notebook 02. Indicator Analysis
 
 What it does:
 
-- Loads cleaned data into a local PostgreSQL database using SQLAlchemy
+- Loads all 5 cleaned CSVs into a SQLite in-memory database
 - Runs 6 analytical SQL queries covering:
-  1. Average female labour force participation by region
-  2. Top 10 countries by gender parity improvement (2015-2023)
-  3. Youth unemployment trends: East vs West Africa
-  4. Countries below the AU 30% women-in-parliament target
-  5. Combined gender and youth risk index (UNION query)
-  6. Year-on-year change in girls' secondary enrolment
+  1. Latest value snapshot per country per indicator
+  2. Continental average trend over time (2015-2023)
+  3. Regional rankings per indicator
+  4. Top and bottom 5 performers — women in parliament
+  5. Gender gap in youth unemployment by country
+  6. Data completeness by region and indicator
 
-Key skills demonstrated: PostgreSQL, window functions, UNION queries, aggregation, subqueries
+Key skills demonstrated: SQLite, window functions, UNION queries, aggregation, subqueries
 
 ---
 
@@ -110,9 +112,10 @@ Key skills demonstrated: PostgreSQL, window functions, UNION queries, aggregatio
 
 What it does:
 
-- Generates summary DataFrames from SQL query results
-- Exports final indicator tables to CSV for Power BI ingestion
-- Produces a structured indicator summary report
+- Loads all 5 cleaned indicator datasets
+- Builds regional summary tables (avg, min, max per region)
+- Combines into a master indicator report
+- Exports individual indicator CSVs and master summary to `data/cleaned/exports/`
 
 Key skills demonstrated: Data export pipeline, reporting automation, M&E indicator formatting
 
@@ -149,33 +152,29 @@ Slicer: Year (2015-2023) - filters all visuals by reporting year.
 ### Prerequisites
 
 ```bash
-pip install pandas sqlalchemy psycopg2-binary openpyxl jupyter
+pip install pandas numpy jupyter
 ```
 
-Create a PostgreSQL database called `gender_tracker`:
-
-```sql
-CREATE DATABASE gender_tracker;
-```
+> No database setup required. Notebook 02 uses Python's built-in `sqlite3` module with an in-memory database.
 
 ### Steps
 
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/TeresiahNjoroge/africa-gender-youth-data-tracker.git
-cd africa-gender-youth-data-tracker
+git clone https://github.com/TeresiahNjoroge/africa-gender-youth-data-project.git
+cd africa-gender-youth-data-project
 ```
 
-2. Run notebooks in order:
+2. Launch Jupyter and run notebooks in order:
 
 ```
 notebooks/01_data_cleaning.ipynb
-notebooks/02_sql_analysis.ipynb
+notebooks/02_indicator_analysis.ipynb
 notebooks/03_reporting_export.ipynb
 ```
 
-3. Open Power BI Desktop and load CSVs from `data/cleaned/`
+3. Open Power BI Desktop and load CSVs from `data/cleaned/exports/`
 
 ---
 
