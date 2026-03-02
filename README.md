@@ -12,7 +12,7 @@
 
 This project is an end-to-end **Monitoring, Evaluation & Learning (MEL)** data pipeline built to track gender and youth indicators across African countries.
 
-It demonstrates how raw survey and administrative data can be cleaned, stored in a relational database, queried with SQL, and visualised in Power BI to generate actionable insights for development programmes.
+It demonstrates how raw survey and administrative data can be cleaned, loaded into an in-memory SQL database, queried with SQL, and visualised in Power BI to generate actionable insights for development programmes.
 
 ---
 
@@ -47,13 +47,16 @@ This tracker solves that by building a reproducible, auditable pipeline from raw
 africa-gender-youth-data-project/
 |
 |-- data/
-|   |-- raw/              # Original CSV files (downloaded from the World Bank Open Data API)
+|   |-- raw/              # Original CSV files (retrieved from the World Bank Open Data API)
 |   |-- cleaned/          # Processed, analysis-ready datasets
 |
 |-- notebooks/
 |   |-- 01_data_cleaning.ipynb       # Data ingestion, cleaning, standardisation
 |   |-- 02_indicator_analysis.ipynb  # SQL queries via Python (sqlite3)
 |   |-- 03_reporting_export.ipynb    # Summary tables and export for Power BI
+|
+|-- sql/
+|   |-- analysis_queries.sql         # Standalone SQL query reference
 |
 |-- dashboard/
 |   |-- 04_gender_youth_dashboard.pbix  # Power BI file
@@ -140,10 +143,10 @@ Slicer: Year (2015-2023) - filters all visuals by reporting year.
 
 ## Key Findings
 
-- **Southern Africa** leads on women in parliament (~38%), while West Africa is lowest (~27%)
-- **North Africa** is a clear outlier on female labour force participation (~22% vs continental average of ~58%)
-- **DJI (Djibouti) and LBY (Libya)** show the largest male-female youth unemployment gap
-- Data completeness is **100% balanced**, 477 records per indicator across all regions
+- **East Africa** leads on women in parliament (~28.6%), while West Africa is lowest (~16.8%)
+- **North Africa** is a clear outlier on female labour force participation (~21.7% vs continental average of ~55%)
+- **LBY (Libya)** shows the largest male-female youth unemployment gap (26.8 percentage points)
+- Data completeness is **486 records per indicator** (54 countries × 9 years) across all 5 indicators
 
 ---
 
@@ -152,7 +155,7 @@ Slicer: Year (2015-2023) - filters all visuals by reporting year.
 ### Prerequisites
 
 ```bash
-pip install pandas numpy jupyter
+pip install pandas numpy jupyter wbgapi
 ```
 
 > No database setup required. Notebook 02 uses Python's built-in `sqlite3` module with an in-memory database.
