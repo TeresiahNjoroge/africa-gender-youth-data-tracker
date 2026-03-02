@@ -3,7 +3,7 @@
 > M&E data analysis and reporting project for Africa gender & youth indicators | SQL · Python · Power BI
 
 [![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)](https://www.python.org/)
-[![SQL](https://img.shields.io/badge/SQL-PostgreSQL-336791?logo=postgresql)](https://www.postgresql.org/)
+[![SQLite](https://img.shields.io/badge/SQL-SQLite-003B57?logo=sqlite)](https://www.sqlite.org/)
 [![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi)](https://powerbi.microsoft.com/)
 
 ---
@@ -64,9 +64,9 @@ africa-gender-youth-data-project/
 
 ---
 
-## Data Sources (Simulated)
+## Data Sources
 
-The datasets used in this project were sourced from the World Bank Open Data API for all 54 African Union member states:
+The datasets used in this project were retrieved from the World Bank Open Data API for all 54 African Union member states:
 
 - `female_lfp_clean.csv` — Female labour force participation rate by country and year
 - `girls_secondary_enrol_clean.csv` — Girls secondary school enrolment by country and year
