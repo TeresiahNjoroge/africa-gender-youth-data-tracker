@@ -195,7 +195,7 @@ notebooks/03_reporting_export.ipynb
 
 ## About the Author
 
-**Teresiah Njoroge** — Data Analyst | Nairobi, Kenya
+**Teresiah Njoroge** - Data Analyst | Nairobi, Kenya
 
 Experienced in SQL, Python, and Power BI with a background in operations, project management, and data-driven reporting. Passionate about using data to drive evidence-based decisions in development, climate, and gender equity programmes.
 
